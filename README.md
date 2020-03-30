@@ -136,6 +136,80 @@ En el archivo _.eslintrc.json_ definimos las reglas de ESLint.
 
 Crea un disco de vinilo lo más realista posible haciendo uso de HTML y CSS. Intenta no utilizar imágenes. 
 
+![Captura7](images/cap7.png)
+![Captura8](images/cap8.png)
+
 #### Assets con Parcel.
 
 Investiga como importar assets (recursos estáticos) para utilizarlos en nuestra página con Parcel.
+
+Parcel está basado en assets. Un asset puede ser cualquier tipo de archivo, sin embargo, parcel tiene soporte especial para 
+algunos de ellos como JavaScript, CSS y HTML.
+
+**JavaScript**
+
+Es el tipo de archivo más común. Parcel soporta tanto CommonJS como módulos en ES6 para importar archivos. También soporta la función _import()_ para cargar módulos de manera asíncrona.
+
+  ```
+  // importa un módulo utilizando CommonJS
+  const dep = require('./path/to/dep')
+
+  // importa un módulo utilizando ES6
+  import dep from './path/to/dep'
+  ```
+También se pueden importar otro tipo de assets que no sean JavaScript desde un archivo JavaScript como por ejemplo CSS o
+incluso una imagen.  
+  ```
+  // Importa un archivo CSS
+  import './test.css'
+
+  // Importa un archivo CSS con CSS modules
+  import classNames from './test.css'
+
+  // Importa la URL de una imagen
+  import imageURL from './test.png'
+  ```
+Cuando se usa _CSS modules_, las clases exportadas serán añadidas al paquete de salida JavaScript.
+
+También se puede insertar un archivo dentro de un paquete usando el API _fs.readFileSync_ de Node.js.
+  ```
+  import fs from 'fs'
+
+  // Lee el contenido como un string
+  const string = fs.readFileSync(__dirname + '/test.txt', 'utf8')
+
+  // Lee el contenido como un Buffer
+  const buffer = fs.readFileSync(__dirname + '/test.png')
+  ```
+**CSS**
+
+Los archivos CSS pueden ser importados a partir de un archivo JavaScript o HTML, y pueden tener referencias de dependencias
+utilizando _@import_ así también como referencias a imágenes, fuentes, etc, a través de la función _url()_. 
+
+  ```
+  /* Importa otro archivo CSS */
+  @import './other.css';
+
+  .test {
+    /* Referencia una imagen */
+    background: url('./images/background.png');
+  }
+  ```
+A parte de archivos CSS planos, otros lenguajes que compilan a CSS como LESS, SASS, y Stylus son también soportados, y funcionan de la misma manera.
+
+**HTML**
+
+Los archivos HTML son utilizados frecuentemente como punto de entrada para Parcel, pero también pueden ser referenciados en archivos JavaScript, por ejemplo: para proporcionar enlaces a otras páginas. 
+  ```
+  <html>
+  <body>
+    <!-- referencia a una imagen -->
+    <img src="./images/header.png">
+
+    <a href="./other.html">Enlace a otra página</a>
+
+    <!-- Importa un paquete JavaScript -->
+    <script src="./index.js"></script>
+  </body>
+  </html>
+  ```
