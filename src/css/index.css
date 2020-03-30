@@ -1,5 +1,84 @@
 /* index.css */
-body {
-    background: black;
-    color: white;
+html {
+    font-size: 16px;
 }
+body {
+    background: white;
+    color: black;
+}
+.vinyl {
+    width: 20rem;
+    height: 20rem;
+    background: black; /* #151515;*/
+    border-radius: 50%;
+    margin: 2rem auto 0 auto;
+}
+
+.vinyl::before {
+    content: '';
+    width: 18rem;
+    height: 18rem;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    border: solid #151515 0.04rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+
+}
+.vinyl_detail {
+    width: 16rem;
+    height: 16rem;
+    background: black; /* #151515;*/
+    border-radius: 50%;
+    position: absolute;
+    border: solid #151515 0.04rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.vinyl_detail::before {
+    content: '';
+    width: 14rem;
+    height: 14rem;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    border: solid #151515 0.04rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+
+}
+.detail {
+    width: 6.5rem;
+    height: 6.5rem;
+    background: #facc2e;
+    border-radius: 50%;
+    position: absolute;
+    border: solid #ffbf00 1rem;
+    margin-top: 3.75rem;
+    margin-left: 3.75rem;
+}
+
+.detail::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 3rem;
+    margin-left: 3rem
+}
+/*
+.detail::after {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background: white;
+    border-radius: 50%;
+    /*border: solid #3b0b0b 1rem;*/
+/*    position: absolute;
+    margin-top: 3.75rem;
+    margin-left: 3.75rem;
+}*/
