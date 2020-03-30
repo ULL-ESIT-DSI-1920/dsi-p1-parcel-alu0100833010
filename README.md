@@ -131,3 +131,11 @@ En el archivo _.eslintrc.json_ definimos las reglas de ESLint.
   npm install -D eslint-config.prettier eslint-plugin-prettier
   ```
 ### Retos.
+
+#### Vinilo.
+
+Crea un disco de vinilo lo más realista posible haciendo uso de HTML y CSS. Intenta no utilizar imágenes. 
+
+#### Assets con Parcel.
+
+Investiga como importar assets (recursos estáticos) para utilizarlos en nuestra página con Parcel.
